@@ -13,7 +13,8 @@ import CardAvatar from "components/Card/CardAvatar.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 
-import avatar from "assets/img/faces/marc.jpg";
+import avatar from "assets/img/faces/dat.png";
+import { TrainRounded } from "@material-ui/icons";
 
 const styles = {
   cardCategoryWhite: {
@@ -44,15 +45,15 @@ export default function UserProfile() {
         <GridItem xs={12} sm={12} md={8}>
           <Card>
             <CardHeader color="primary">
-              <h4 className={classes.cardTitleWhite}>Edit Profile</h4>
-              <p className={classes.cardCategoryWhite}>Complete your profile</p>
+              <h4 className={classes.cardTitleWhite}>CHỈNH SỬA THÔNG TIN CỦA BẠN</h4>
+              <p className={classes.cardCategoryWhite}>Điền thông tin chỉnh sửa cần thiết</p>
             </CardHeader>
             <CardBody>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={5}>
                   <CustomInput
-                    labelText="Company (disabled)"
-                    id="company-disabled"
+                    labelText="Tên tài khoản"
+                    id="Ten-tai-khoan-disabled"
                     formControlProps={{
                       fullWidth: true
                     }}
@@ -63,8 +64,8 @@ export default function UserProfile() {
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
                   <CustomInput
-                    labelText="Username"
-                    id="username"
+                    labelText="Tên"
+                    id="ten"
                     formControlProps={{
                       fullWidth: true
                     }}
@@ -72,28 +73,8 @@ export default function UserProfile() {
                 </GridItem>
                 <GridItem xs={12} sm={12} md={4}>
                   <CustomInput
-                    labelText="Email address"
-                    id="email-address"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />
-                </GridItem>
-              </GridContainer>
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={6}>
-                  <CustomInput
-                    labelText="First Name"
-                    id="first-name"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={6}>
-                  <CustomInput
-                    labelText="Last Name"
-                    id="last-name"
+                    labelText="Họ"
+                    id="ho"
                     formControlProps={{
                       fullWidth: true
                     }}
@@ -103,8 +84,8 @@ export default function UserProfile() {
               <GridContainer>
                 <GridItem xs={12} sm={12} md={4}>
                   <CustomInput
-                    labelText="City"
-                    id="city"
+                    labelText="Năm Sinh"
+                    id="namsinh"
                     formControlProps={{
                       fullWidth: true
                     }}
@@ -112,8 +93,8 @@ export default function UserProfile() {
                 </GridItem>
                 <GridItem xs={12} sm={12} md={4}>
                   <CustomInput
-                    labelText="Country"
-                    id="country"
+                    labelText="Nghề nghiệp"
+                    id="nghenghiep"
                     formControlProps={{
                       fullWidth: true
                     }}
@@ -121,20 +102,52 @@ export default function UserProfile() {
                 </GridItem>
                 <GridItem xs={12} sm={12} md={4}>
                   <CustomInput
-                    labelText="Postal Code"
-                    id="postal-code"
+                    labelText="Số điện thoại"
+                    id="sdt"
                     formControlProps={{
                       fullWidth: true
+                    }}
+                  />
+                </GridItem>
+              </GridContainer>
+              <GridContainer>
+                <GridItem xs={12} sm={12} md={4}>
+                  <CustomInput
+                    labelText="Địa chỉ"
+                    id="diachi"
+                    formControlProps={{
+                      fullWidth: true
+                    }}
+                  />
+                </GridItem>
+                <GridItem xs={12} sm={12} md={4}>
+                  <CustomInput
+                    labelText="Quốc tịch"
+                    id="quoctich"
+                    formControlProps={{
+                      fullWidth: true
+                    }}
+                  />
+                </GridItem>
+                <GridItem xs={12} sm={12} md={4}>
+                  <CustomInput
+                    labelText="Mã số bệnh nhân"
+                    id="masobenhnhan"
+                    formControlProps={{
+                      fullWidth: true
+                    }}
+                    inputProps={{
+                      disabled: true
                     }}
                   />
                 </GridItem>
               </GridContainer>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={12}>
-                  <InputLabel style={{ color: "#AAAAAA" }}>About me</InputLabel>
+                  <InputLabel style={{ color: "#AAAAAA" }}>THÔNG TIN KHÁC</InputLabel>
                   <CustomInput
-                    labelText="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."
-                    id="about-me"
+                    labelText="Điền thông tin bệnh của bạn (nếu có)"
+                    id="thongtinbenh"
                     formControlProps={{
                       fullWidth: true
                     }}
@@ -147,7 +160,10 @@ export default function UserProfile() {
               </GridContainer>
             </CardBody>
             <CardFooter>
-              <Button color="primary">Update Profile</Button>
+              <Button 
+              href="/admin/trangchu"
+              color="primary">Lưu thông tin
+              </Button>
             </CardFooter>
           </Card>
         </GridItem>
@@ -159,15 +175,14 @@ export default function UserProfile() {
               </a>
             </CardAvatar>
             <CardBody profile>
-              <h6 className={classes.cardCategory}>CEO / CO-FOUNDER</h6>
-              <h4 className={classes.cardTitle}>Alec Thompson</h4>
+              <h6 className={classes.cardCategory}>GIÁM ĐỐC BỆNH VIỆN ĐẠT ANH</h6>
+              <h4 className={classes.cardTitle}>HỒ QUỐC ĐẠT</h4>
               <p className={classes.description}>
-                Don{"'"}t be scared of the truth because we need to restart the
-                human foundation in truth And I love you like Kanye loves Kanye
-                I love Rick Owens’ bed design but the back is...
+              Sức khỏe là thứ mà ta không nhìn thấy được, là yếu tố sống còn của mỗi con người; Hãy nâng niu quý trọng sức khỏe, đừng để khi mất rồi mới thấy hối tiếc.
               </p>
-              <Button color="primary" round>
-                Follow
+              <Button color="primary" round href="https://www.facebook.com/alvinDmartin.Pro99">
+
+                Follow Facebook
               </Button>
             </CardBody>
           </Card>

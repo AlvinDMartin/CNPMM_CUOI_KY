@@ -7,18 +7,16 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
 
 const products = [
-  { name: 'Product 1', desc: 'A nice thing', price: '$9.99' },
-  { name: 'Product 2', desc: 'Another thing', price: '$3.45' },
-  { name: 'Product 3', desc: 'Something else', price: '$6.51' },
-  { name: 'Product 4', desc: 'Best thing of all', price: '$14.11' },
-  { name: 'Shipping', desc: '', price: 'Free' },
+  { name: 'Phòng khám', desc: 'Phòng khám số', price: '1' },
+  { name: 'Bác sĩ', desc: 'Tên bác sĩ', price: 'Phạm Văn Thành' },
+  { name: 'Thời gian', desc: 'Thời gian khám bệnh', price: '8h00' },
+  { name: 'Ngày tháng năm', desc: 'Ngày đến khám', price: '10/12/2020' },
 ];
-const addresses = ['1 Material-UI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
+const addresses = ['Thành phố Hồ Chí Minh'];
 const payments = [
-  { name: 'Card type', detail: 'Visa' },
-  { name: 'Card holder', detail: 'Mr John Smith' },
-  { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
-  { name: 'Expiry date', detail: '04/2024' },
+  { name: 'Tên diều dưỡng', detail: 'Nguyễn Lê Nguyên Anh' },
+  { name: 'Bàn hướng dẫn', detail: 'Số 1' },
+  { name: 'Số điện thoại', detail: '0345687954' },
 ];
 
 const useStyles = makeStyles((theme) => ({
@@ -39,7 +37,7 @@ export default function Review() {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        Order summary
+        Thông tin đặt lịch
       </Typography>
       <List disablePadding>
         {products.map((product) => (
@@ -49,23 +47,23 @@ export default function Review() {
           </ListItem>
         ))}
         <ListItem className={classes.listItem}>
-          <ListItemText primary="Total" />
+          <ListItemText primary="Thanh toán" />
           <Typography variant="subtitle1" className={classes.total}>
-            $34.06
+            sau khi khám
           </Typography>
         </ListItem>
       </List>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <Typography variant="h6" gutterBottom className={classes.title}>
-            Shipping
+            Thông tin bệnh nhân
           </Typography>
-          <Typography gutterBottom>John Smith</Typography>
+          <Typography gutterBottom>Nguyễn Văn A</Typography>
           <Typography gutterBottom>{addresses.join(', ')}</Typography>
         </Grid>
         <Grid item container direction="column" xs={12} sm={6}>
           <Typography variant="h6" gutterBottom className={classes.title}>
-            Payment details
+            Thông tin liên hệ
           </Typography>
           <Grid container>
             {payments.map((payment) => (

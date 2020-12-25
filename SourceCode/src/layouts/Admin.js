@@ -34,7 +34,7 @@ const switchRoutes = (
       }
       return null;
     })}
-    <Redirect from="/admin" to="/admin/dashboard" />
+    <Redirect from="/admin" to="/admin/trangchu" />
   </Switch>
 );
 
@@ -96,7 +96,7 @@ export default function Admin({ ...rest }) {
     <div className={classes.wrapper}>
       <Sidebar
         routes={routes}
-        logoText={"Creative Tim"}
+        logoText={"Bệnh viện Đạt Anh"}
         logo={logo}
         image={image}
         handleDrawerToggle={handleDrawerToggle}
@@ -110,7 +110,7 @@ export default function Admin({ ...rest }) {
           handleDrawerToggle={handleDrawerToggle}
           {...rest}
         />
-        {/* On the /maps route we want the map to be on full screen - this is not possible if the content and conatiner classes are present because they have some paddings which would make the map smaller */}
+        
         {getRoute() ? (
           <div className={classes.content}>
             <div className={classes.container}>{switchRoutes}</div>
@@ -118,7 +118,7 @@ export default function Admin({ ...rest }) {
         ) : (
           <div className={classes.map}>{switchRoutes}</div>
         )}
-        {getRoute() ? <Footer /> : null}
+        {getRoute() ? <Footer /> : null}--
         <FixedPlugin
           handleImageClick={handleImageClick}
           handleColorClick={handleColorClick}

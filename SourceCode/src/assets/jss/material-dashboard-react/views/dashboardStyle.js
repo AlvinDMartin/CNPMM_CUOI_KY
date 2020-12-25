@@ -80,15 +80,15 @@ const dashboardStyle = {
     }
   },
   cardresize1: {
-    width: "1750px",
-    height: "700px",
+    width: "100%",
+    height: "90%",
   },
   cardresize2: {
-    width: "800px",
-    height: "400px",
+    width: "100%",
+    height: "300px",
   },
   cardresize3: {
-    width: "300px",
+    width: "100%",
     height: "200px",
   }
 };

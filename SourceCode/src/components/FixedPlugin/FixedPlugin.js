@@ -19,6 +19,7 @@ export default function FixedPlugin(props) {
   const handleClick = () => {
     props.handleFixedClick();
   };
+
   return (
     <div
       className={classnames("fixed-plugin", {
@@ -30,7 +31,7 @@ export default function FixedPlugin(props) {
           <i className="fa fa-cog fa-2x" />
         </div>
         <ul className="dropdown-menu">
-          <li className="header-title">SIDEBAR FILTERS</li>
+          <li className="header-title">Màu sắc</li>
           <li className="adjustments-line">
             <a className="switch-trigger">
               <div>
@@ -92,7 +93,7 @@ export default function FixedPlugin(props) {
               </div>
             </a>
           </li>
-          <li className="header-title">Images</li>
+          <li className="header-title">Ảnh bìa</li>
           <li className={bgImage === imagine1 ? "active" : ""}>
             <a
               className="img-holder switch-trigger"
@@ -141,12 +142,12 @@ export default function FixedPlugin(props) {
           <li className="button-container">
             <div className="button-container">
               <Button
-                color="success"
-                href="https://www.creative-tim.com/product/material-dashboard-react?ref=mdr-fixed-plugin"
+                color="danger"
+                href="/admin/dangnhap"
                 target="_blank"
                 fullWidth
               >
-                Download free!
+                Đăng nhập ngay
               </Button>
             </div>
           </li>
@@ -154,11 +155,11 @@ export default function FixedPlugin(props) {
             <div className="button-container">
               <Button
                 color="warning"
-                href="https://www.creative-tim.com/product/material-dashboard-pro-react?ref=mdr-fixed-plugin"
+                href="/admin/dangky"
                 target="_blank"
                 fullWidth
               >
-                Get PRO version
+                Bạn chưa có tài khoản? Đăng ký ngay
               </Button>
             </div>
           </li>
@@ -166,10 +167,10 @@ export default function FixedPlugin(props) {
             <Button
               color="info"
               fullWidth
-              href="https://demos.creative-tim.com/material-dashboard-react/#/documentation/tutorial?ref=mdr-fixed-plugin"
+              href="/admin/thongtinlienhe"
               target="_blank"
             >
-              Documentation
+              Thông tin liên hệ
             </Button>
           </li>
           <li className="adjustments-line" />

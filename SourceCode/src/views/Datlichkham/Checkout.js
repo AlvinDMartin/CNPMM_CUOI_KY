@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const steps = ['Shipping address', 'Payment details', 'Review your order'];
+const steps = ['Thông tin bệnh nhân', 'Chọn lịch', 'Kiểm tra thông tin đặt lịch'];
 
 function getStepContent(step) {
   switch (step) {
@@ -119,7 +119,7 @@ export default function Checkout() {
                     onClick={handleNext}
                     className={classes.button}
                   >
-                    {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                    {activeStep === steps.length - 1 ? 'Đặt lịch' : 'Tiếp theo'}
                   </Button>
                 </div>
               </React.Fragment>

@@ -35,18 +35,18 @@ export default function AddressForm() {
         <Grid item xs={12}>
           <TextField
             required
-            id="address1"
-            name="address1"
-            label="Address line 1"
+            id="namsinh"
+            name="namsinh"
+            label="Năm sinh"
             fullWidth
             autoComplete="shipping address-line1"
           />
         </Grid>
         <Grid item xs={12}>
           <TextField
-            id="address2"
-            name="address2"
-            label="Address line 2"
+            id="sdt"
+            name="sdt"
+            label="Số điện thoại"
             fullWidth
             autoComplete="shipping address-line2"
           />
@@ -56,20 +56,25 @@ export default function AddressForm() {
             required
             id="city"
             name="city"
-            label="City"
+            label="Thành phố/Tỉnh"
             fullWidth
             autoComplete="shipping address-level2"
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField id="state" name="state" label="State/Province/Region" fullWidth />
+          <TextField 
+          id="state" 
+          name="state" 
+          label="Quận/Huyện" 
+          fullWidth 
+          />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="zip"
-            name="zip"
-            label="Zip / Postal code"
+            id="nghenghiep"
+            name="nghenghiep"
+            label="Nghề nghiệp"
             fullWidth
             autoComplete="shipping postal-code"
           />
@@ -79,7 +84,7 @@ export default function AddressForm() {
             required
             id="country"
             name="country"
-            label="Country"
+            label="Địa chỉ"
             fullWidth
             autoComplete="shipping country"
           />
@@ -87,7 +92,7 @@ export default function AddressForm() {
         <Grid item xs={12}>
           <FormControlLabel
             control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
-            label="Use this address for payment details"
+            label="Thông tin trên là chính xác"
           />
         </Grid>
       </Grid>
