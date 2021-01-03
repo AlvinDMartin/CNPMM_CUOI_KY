@@ -1,0 +1,490 @@
+{
+	"info": {
+		"_postman_id": "a6480953-e82e-47a9-a9a3-234315300623",
+		"name": "nna",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "customers",
+			"item": [
+				{
+					"name": "customers:addCustomer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\": \"Hồ Quốc Đạt\",\r\n    \"phone\": \"098765456\",\r\n    \"address\": \"Cách Mạng tháng 8, Phường 6, Quận 3\",\r\n    \"note\": \"Đặt lịch khám bệnh\",\r\n    \"accounts_username\":\"hqdat\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/customers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "accounts",
+			"item": [
+				{
+					"name": "accounts:create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"nguyenvanhngao123\",\r\n    \"password\":\"123456a@\",\r\n    \"type\":\"employee\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/signup",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "account:login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"nguyenanh123\",\r\n    \"password\":\"123456a@\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "doctors",
+			"item": [
+				{
+					"name": "doctors:add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\": \"TS. Phạm Trường Sơn\",\r\n    \"phone\": \"3865606544\",\r\n    \"note\": \"Cấp cứu, chẩn đoán và điều trị các bệnh Tim mạch; thực hiện các kỹ thuật chẩn đoán, can thiệp tim mạch và nhịp học; tham gia chuẩn bị bệnh nhân và hội chẩn phẫu thuật tim mạch cho bệnh nhân là bộ đội, chính sách, BHYT và bệnh nhân nhân dân\",\r\n    \"specialists_idSpecialists\": \"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/doctors",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"doctors"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "diseases",
+			"item": [
+				{
+					"name": "diseases:addDiseases",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Đau bụng trên\",\r\n    \"description\": \"\",\r\n    \"group_diseases_idGroup\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/diseases",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"diseases"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "diseases:getDiseases",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/list-diseases",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"list-diseases"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "diseases:update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idDisease\": \"1\",\r\n    \"description\": \"Tiêu chảy\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/diseases",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"diseases"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "diseases:getOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cases",
+			"item": [
+				{
+					"name": "cases:add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nameCase\":\"Ca 8\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/cases",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"cases"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "group_diseases",
+			"item": [
+				{
+					"name": "group_diseases:getGroupDiseases",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/group-diseases",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"group-diseases"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "groupDiseases:addGroup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nameGroup\": \"Nhóm bệnh tim mạch\",\r\n    \"description\": \"Bệnh Tim Mạch là một trong những căn bệnh có tỉ lệ gây tử vong hàng đầu trên toàn thế giới.\",\r\n    \"specialists_idSpecialists\": \"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/group-diseases",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"group-diseases"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "specialists",
+			"item": [
+				{
+					"name": "specialists: getspecialists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/auth/get-specialists",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"get-specialists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "specialists:add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Khoa tim mạch tổng quát\",\r\n    \"description\": \"Khoa Tim mạch tổng quát là khoa lâm sàng điều trị các bệnh nội khoa tim mạch của người lớn\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/get-specialists",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"get-specialists"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cases-doctors",
+			"item": [
+				{
+					"name": "cases_doctors:get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/auth/cases-doctors",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"cases-doctors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cases_doctors:add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"Tôi đến trễ 15p nhé\",\r\n    \"cases_idCase\": \"7\",\r\n    \"doctors_idDoctor\": \"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/cases-doctors",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"cases-doctors"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "booking_cases",
+			"item": [
+				{
+					"name": "booking_cases:get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/auth/booking-cases",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"booking-cases"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "booking:add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customers_idCustomer\": \"2\",\r\n    \"cases_doctors_idCase_doctor\": \"14\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/booking-cases",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"booking-cases"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
