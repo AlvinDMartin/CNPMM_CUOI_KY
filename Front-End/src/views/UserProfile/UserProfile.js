@@ -13,6 +13,9 @@ import CardAvatar from "components/Card/CardAvatar.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 
+import customersApi from "api/customersApi.js";
+import { useForm } from "react-hook-form";
+
 import avatar from "assets/img/faces/dat.png";
 import { TrainRounded } from "@material-ui/icons";
 
@@ -39,105 +42,107 @@ const useStyles = makeStyles(styles);
 
 export default function UserProfile() {
   const classes = useStyles();
+  const {register, handleSubmit } = useForm();
+  const infor = {
+    fullName: '',
+    phone:'',
+    address:'',
+    note:''
+  }
+
+  const fetchcustomer = async(datacustomer) =>{
+    try{
+      let response = await customersApi.post(datacustomer);
+      console.log(response)
+    }
+    catch(error){
+      console.log(error);
+    }
+  }
+
+  const onSubmit = () => {
+
+    fetchcustomer(infor);
+  }
+
+  const handeChange = (data, type) => {
+    switch(type) {
+      case 1:
+        infor.fullName = data.target.value;
+        break;
+      case 2:
+        infor.phone = data.target.value
+        break;
+      case 3:
+        infor.address = data.target.value
+        break;
+      case 4:
+        infor.note = data.target.value
+          break;
+      default:
+    }
+    
+  }
+
   return (
+    
     <div>
       <GridContainer>
+
         <GridItem xs={12} sm={12} md={8}>
+        <form className={classes.form} >
           <Card>
             <CardHeader color="primary">
               <h4 className={classes.cardTitleWhite}>CHỈNH SỬA THÔNG TIN CỦA BẠN</h4>
               <p className={classes.cardCategoryWhite}>Điền thông tin chỉnh sửa cần thiết</p>
             </CardHeader>
+
             <CardBody>
               <GridContainer>
-                <GridItem xs={12} sm={12} md={5}>
+                <GridItem xs={12} sm={12} md={12}>
                   <CustomInput
-                    labelText="Tên tài khoản"
-                    id="Ten-tai-khoan-disabled"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                    inputProps={{
-                      disabled: true
-                    }}
-                  />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={3}>
-                  <CustomInput
-                    labelText="Tên"
+                    labelText="Họ và Tên"
                     id="ten"
                     formControlProps={{
                       fullWidth: true
                     }}
-                  />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={4}>
-                  <CustomInput
-                    labelText="Họ"
-                    id="ho"
-                    formControlProps={{
-                      fullWidth: true
+                    inputProps={{
+                      onChange: (data) => {
+                        handeChange(data, 1)
+                      }
                     }}
+                    
                   />
                 </GridItem>
               </GridContainer>
               <GridContainer>
-                <GridItem xs={12} sm={12} md={4}>
-                  <CustomInput
-                    labelText="Năm Sinh"
-                    id="namsinh"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={4}>
-                  <CustomInput
-                    labelText="Nghề nghiệp"
-                    id="nghenghiep"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={4}>
+                <GridItem xs={12} sm={12} md={12}>
                   <CustomInput
                     labelText="Số điện thoại"
                     id="sdt"
                     formControlProps={{
                       fullWidth: true
                     }}
+                    inputProps={{
+                      onChange: (data) => {
+                        handeChange(data, 2)
+                      }
+                    }}
                   />
                 </GridItem>
               </GridContainer>
               <GridContainer>
-                <GridItem xs={12} sm={12} md={4}>
+                <GridItem xs={12} sm={12} md={12}>
                   <CustomInput
                     labelText="Địa chỉ"
                     id="diachi"
                     formControlProps={{
                       fullWidth: true
                     }}
-                  />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={4}>
-                  <CustomInput
-                    labelText="Quốc tịch"
-                    id="quoctich"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={4}>
-                  <CustomInput
-                    labelText="Mã số bệnh nhân"
-                    id="masobenhnhan"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
                     inputProps={{
-                      disabled: true
+                      onChange: (data) => {
+                        handeChange(data, 3)
+                      }
                     }}
                   />
                 </GridItem>
@@ -155,17 +160,26 @@ export default function UserProfile() {
                       multiline: true,
                       rows: 5
                     }}
+                    inputProps={{
+                      onChange: (data) => {
+                        handeChange(data, 4)
+                      }
+                    }}
                   />
                 </GridItem>
               </GridContainer>
-            </CardBody>
+            </CardBody>            
             <CardFooter>
               <Button 
-              href="/admin/trangchu"
-              color="primary">Lưu thông tin
+              href=""
+              color="primary"
+              onClick={onSubmit}
+              >Lưu thông tin
+              
               </Button>
             </CardFooter>
           </Card>
+          </form>
         </GridItem>
         <GridItem xs={12} sm={12} md={4}>
           <Card profile>
@@ -188,6 +202,7 @@ export default function UserProfile() {
           </Card>
         </GridItem>
       </GridContainer>
+     
     </div>
   );
 }

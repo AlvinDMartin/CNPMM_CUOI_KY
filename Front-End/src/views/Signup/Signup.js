@@ -13,6 +13,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
+import { useForm } from "react-hook-form";
+import signUpApi from "api/signUpApi";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -34,10 +36,35 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 export default function SignUp() {
   const classes = useStyles();
 
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    const userAccount = {
+      username: data.username,
+      password: data.password,
+      type: "employee"
+    }
+    fetchSignUp(userAccount);
+    console.log(userAccount)
+  };
+
+  const fetchSignUp = async(account) => {
+    try{
+      let response = await signUpApi.signUp(account);
+      console.log(response);
+    }
+    catch(error){
+      console.log(error);
+    }
+  }
+
   return (
+
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -47,9 +74,9 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           ĐĂNG KÝ TÀI KHOẢN
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit={handleSubmit(onSubmit)}>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={12}>
               <TextField
                 autoComplete="fname"
                 name="firstName"
@@ -57,19 +84,8 @@ export default function SignUp() {
                 required
                 fullWidth
                 id="firstName"
-                label="Tên"
+                label="Họ và Tên"
                 autoFocus
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Họ"
-                name="lastName"
-                autoComplete="lname"
               />
             </Grid>
             <Grid item xs={12}>
@@ -78,9 +94,10 @@ export default function SignUp() {
                 required
                 fullWidth
                 id="email"
-                label="Địa chỉ Email"
-                name="email"
+                label="Tên tài khoản"
+                name="username"
                 autoComplete="email"
+                inputRef={register}
               />
             </Grid>
             <Grid item xs={12}>
@@ -93,6 +110,7 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                inputRef={register}
               />
             </Grid>
             <Grid item xs={12}>
@@ -107,7 +125,7 @@ export default function SignUp() {
             fullWidth
             variant="contained"
             color="primary"
-            className={classes.submit}
+            /* className={classes.submit} */
           >
             ĐĂNG KÝ
           </Button>

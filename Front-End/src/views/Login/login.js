@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,6 +12,11 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { Switch, Route, Redirect } from "react-router-dom";
+
+
+import { useForm } from "react-hook-form";
+import logInApi from "api/logInApi";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -34,8 +39,33 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 export default function SignIn() {
   const classes = useStyles();
+
+  const {register, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    const userAccount = JSON.stringify(data);
+    console.log(userAccount);
+    fetchLogIn(userAccount);
+  };
+
+  const fetchLogIn = async(userAccount) =>{
+    try{
+      let response = await logInApi.login(userAccount);
+      alert("Thành công");
+      //chuyển trang
+      return localStorage.setItem('user', true)
+      
+    }
+    catch(error){
+      console.log(error);
+    }
+  }
+
+
 
   return (
     <Container component="main" maxWidth="xs">
@@ -47,17 +77,18 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           ĐĂNG NHẬP TÀI KHOẢN CỦA BẠN
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
           <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
-            id="email"
-            label="Địa chỉ Email"
-            name="email"
-            autoComplete="email"
+            id="username"
+            label="Tên tài khoản"
+            name="username"
+            autoComplete="username"
             autoFocus
+            inputRef={register} 
           />
           <TextField
             variant="outlined"
@@ -69,6 +100,7 @@ export default function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
+            inputRef={register} 
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
@@ -79,7 +111,7 @@ export default function SignIn() {
             fullWidth
             variant="contained"
             color="primary"
-            className={classes.submit}
+            //className={classes.submit} 
           >
             ĐĂNG NHẬP
           </Button>

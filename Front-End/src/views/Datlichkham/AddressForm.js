@@ -12,24 +12,14 @@ export default function AddressForm() {
         Thông tin bệnh nhân
       </Typography>
       <Grid container spacing={3}>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={12}>
           <TextField
             required
-            id="firstName"
-            name="firstName"
-            label="Tên"
+            id="Name"
+            name="Name"
+            label="Họ và Tên"
             fullWidth
             autoComplete="given-name"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="lastName"
-            name="lastName"
-            label="Họ"
-            fullWidth
-            autoComplete="family-name"
           />
         </Grid>
         <Grid item xs={12}>
