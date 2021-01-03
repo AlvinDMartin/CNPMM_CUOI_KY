@@ -2,6 +2,7 @@ const config = require("../config/auth.config");
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 var moment = require("moment");
+
 exports.signup = async (req, res) => {
   // Save User to Database
   let {
@@ -15,6 +16,7 @@ exports.signup = async (req, res) => {
       password: bcrypt.hashSync(password, 8),
       type,
     })
+    //console.log(moment("2021-01-03T13:47:55.454Z").format("YYYY-MM-DD HH:mm"))
     res.status(200).send(account) //tra ve data
   } catch (error) {
     res.status(500).send(error)

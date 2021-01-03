@@ -15,9 +15,9 @@ exports.getGroupDiseases = async (req, res) => {
 exports.addGroupDiseases = async (req, res) => {
     // Save User to Database
     let {
-        nameGroup,
-        description,
-        specialists_idSpecialists,
+            nameGroup,
+            description,
+            specialists_idSpecialists,
     } = req.body;
     try {
         let groupdiseases = await Group_diseases.create({

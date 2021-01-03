@@ -68,7 +68,7 @@ module.exports = function (app) {
   app.put("/api/auth/customers",
     customers.updateCustomer,
   );
-  app.post("/api/auth/add-customers",
+  app.post("/api/auth/customers",
     customers.addCustomer,
   );
   //API Doctors
@@ -92,6 +92,23 @@ module.exports = function (app) {
     cases.addCases,
   );
   //API Booking Case
-
+  app.get("/api/auth/booking-cases",
+    booking_cases.getBookingCase,
+  );
+  app.put("/api/auth/booking-cases",
+    booking_cases.updateBookingCase,
+  );
+  app.post("/api/auth/booking-cases",
+    booking_cases.addBookingCase,
+  );
   //API Cases Doctors
+  app.get("/api/auth/cases-doctors",
+    cases_doctors.getCaseDoctor,
+  );
+  app.put("/api/auth/cases-doctors",
+    cases_doctors.updateCaseDoctor,
+  );
+  app.post("/api/auth/cases-doctors",
+    cases_doctors.addCaseDoctor,
+  );
 };

@@ -77,3 +77,58 @@ export const updateDiseases = function (data) {
     );
     return req;
 };
+
+export const getBookedCases = function (data) {
+    const req = instance.get(
+        "/api/auth/booking-cases",data,
+        {
+            //headers: { "x-access-token": token },
+        },
+    );
+    return req;
+};
+export const getCasesDoctors = function (data) {
+    const req = instance.get(
+        "/api/auth/cases-doctors",data,
+        {
+            //headers: { "x-access-token": token },
+        },
+    );
+    return req;
+};
+export const getCustomer = function (data) {
+    const req = instance.get(
+        "/api/auth/customers",data,
+        {
+            //headers: { "x-access-token": token },
+        },
+    );
+    return req;
+};
+export const getDoctors = function (data) {
+    const req = instance.get(
+        "/api/auth/doctors",data,
+        {
+            //headers: { "x-access-token": token },
+        },
+    );
+    return req;
+};
+export const getCases = function (data) {
+    const req = instance.get(
+        "/api/auth/cases",data,
+        {
+            //headers: { "x-access-token": token },
+        },
+    );
+    return req;
+};
+export const updateBookedCase = function (data) {
+    const req = instance.put(
+        "/api/auth/booking-cases",data,
+        {
+            //headers: { "x-access-token": token },
+        },
+    );
+    return req;
+};

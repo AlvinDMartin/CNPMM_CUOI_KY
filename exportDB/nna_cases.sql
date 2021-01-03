@@ -23,12 +23,12 @@ DROP TABLE IF EXISTS `cases`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cases` (
-  `idCase` int NOT NULL,
+  `idCase` int NOT NULL AUTO_INCREMENT,
   `nameCase` varchar(45) DEFAULT NULL,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`idCase`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,6 +37,7 @@ CREATE TABLE `cases` (
 
 LOCK TABLES `cases` WRITE;
 /*!40000 ALTER TABLE `cases` DISABLE KEYS */;
+INSERT INTO `cases` VALUES (1,'Ca 1: 07:00-08:00','2021-01-03 11:04:50','2021-01-03 11:04:50'),(2,'Ca 2: 08:00-09:00','2021-01-03 11:04:55','2021-01-03 11:04:55'),(3,'Ca 3: 09:00-10:00','2021-01-03 11:04:59','2021-01-03 11:04:59'),(4,'Ca 4: 10:00-11:00','2021-01-03 11:05:03','2021-01-03 11:05:03'),(5,'Ca 5: 13:00-14:00','2021-01-03 11:05:07','2021-01-03 11:05:07'),(6,'Ca 6: 14:00-15:00','2021-01-03 11:05:11','2021-01-03 11:05:11'),(7,'Ca 7: 15:00-16:00','2021-01-03 11:05:17','2021-01-03 11:05:17'),(8,'Ca 8: 16:00-17:00','2021-01-03 11:05:21','2021-01-03 11:05:21');
 /*!40000 ALTER TABLE `cases` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-28 15:30:38
+-- Dump completed on 2021-01-04  3:13:09

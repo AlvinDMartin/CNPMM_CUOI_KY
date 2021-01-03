@@ -30,9 +30,8 @@ CREATE TABLE `diseases` (
   `updatedAt` datetime DEFAULT NULL,
   `group_diseases_idGroup` int NOT NULL,
   PRIMARY KEY (`idDisease`),
-  KEY `fk_diseases_group_diseases1_idx` (`group_diseases_idGroup`),
-  CONSTRAINT `fk_diseases_group_diseases1` FOREIGN KEY (`group_diseases_idGroup`) REFERENCES `group_diseases` (`idGroup`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `fk_diseases_group_diseases1_idx` (`group_diseases_idGroup`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +40,7 @@ CREATE TABLE `diseases` (
 
 LOCK TABLES `diseases` WRITE;
 /*!40000 ALTER TABLE `diseases` DISABLE KEYS */;
-INSERT INTO `diseases` VALUES (1,'Rối loạn tiêu hóa','Tiêu chảy',NULL,'2020-12-27 14:14:41',1),(2,'Đau ruột thừa','','2020-12-27 09:03:49','2020-12-27 14:45:14',1),(3,'Trĩ','Trĩ nội, trĩ ngoại, trĩ hỗn hợp','2020-12-27 13:59:32','2020-12-27 13:59:32',1),(4,'Suy thận','Thận hư','2020-12-27 14:01:13','2020-12-27 14:01:13',1);
+INSERT INTO `diseases` VALUES (1,'Rối loạn tiêu hóa','Tiêu chảy',NULL,'2020-12-27 14:14:41',1),(2,'Đau ruột thừa','','2020-12-27 09:03:49','2020-12-27 14:45:14',1),(3,'Trĩ','Trĩ nội, trĩ ngoại, trĩ hỗn hợp','2020-12-27 13:59:32','2020-12-27 13:59:32',2),(4,'Suy thận','Thận hư','2020-12-27 14:01:13','2020-12-27 14:01:13',2),(5,'Rối loạn tiền đình','','2021-01-02 12:29:28','2021-01-02 12:29:28',1),(6,'Đau bụng trên','','2021-01-02 12:35:28','2021-01-02 12:35:28',1);
 /*!40000 ALTER TABLE `diseases` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-28 15:30:36
+-- Dump completed on 2021-01-04  3:13:08

@@ -23,17 +23,16 @@ DROP TABLE IF EXISTS `doctors`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `doctors` (
-  `idDoctor` int NOT NULL,
-  `fullName` varchar(45) DEFAULT NULL,
+  `idDoctor` int NOT NULL AUTO_INCREMENT,
+  `fullName` varchar(100) DEFAULT NULL,
   `phone` varchar(10) DEFAULT NULL,
-  `note` varchar(45) DEFAULT NULL,
+  `note` varchar(500) DEFAULT NULL,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   `specialists_idSpecialists` int NOT NULL,
   PRIMARY KEY (`idDoctor`),
-  KEY `fk_doctors_specialists1_idx` (`specialists_idSpecialists`),
-  CONSTRAINT `fk_doctors_specialists1` FOREIGN KEY (`specialists_idSpecialists`) REFERENCES `specialists` (`idSpecialists`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `fk_doctors_specialists1_idx` (`specialists_idSpecialists`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,6 +41,7 @@ CREATE TABLE `doctors` (
 
 LOCK TABLES `doctors` WRITE;
 /*!40000 ALTER TABLE `doctors` DISABLE KEYS */;
+INSERT INTO `doctors` VALUES (1,'ThS BS Nguyễn Thiên Hào','3865602744','Điều trị thành công nhiều trường hợp bệnh nặng như nhồi máu cơ tim kết hợp nhồi máu não và suy tim nặng…','2021-01-03 09:39:01','2021-01-03 09:39:01',2),(2,'TS. Phạm Trường Sơn','3865606544','Cấp cứu, chẩn đoán và điều trị các bệnh Tim mạch; thực hiện các kỹ thuật chẩn đoán, can thiệp tim mạch và nhịp học; tham gia chuẩn bị bệnh nhân và hội chẩn phẫu thuật tim mạch cho bệnh nhân là bộ đội, chính sách, BHYT và bệnh nhân nhân dân','2021-01-03 12:11:30','2021-01-03 12:11:30',2);
 /*!40000 ALTER TABLE `doctors` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-28 15:30:37
+-- Dump completed on 2021-01-04  3:13:09

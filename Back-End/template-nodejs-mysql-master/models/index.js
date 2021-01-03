@@ -96,3 +96,9 @@ Group_diseases.belongsTo(Specialists, {
   foreignKey: "specialists_idSpecialists",
   as: "detail_group_specialist",
 });
+
+Accounts.hasOne(Customers, {
+  sourceKey: "username",
+  foreignKey: "accounts_username",
+  as: "list_account",
+});
