@@ -2,7 +2,7 @@ const config = require("../config/auth.config");
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 var moment = require("moment");
-const Customers = require("../models/customers");
+//const Customers = require("../models/customers");
 
 exports.addCustomer = async (req, res) => {
     // Save User to Database

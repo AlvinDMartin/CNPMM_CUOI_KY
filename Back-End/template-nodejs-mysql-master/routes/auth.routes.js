@@ -68,7 +68,7 @@ module.exports = function (app) {
   app.put("/api/auth/customers",
     customers.updateCustomer,
   );
-  app.post("/api/auth/customers",
+  app.post("/api/auth/add-customers",
     customers.addCustomer,
   );
   //API Doctors
