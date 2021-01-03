@@ -38,7 +38,7 @@ CREATE TABLE `accounts` (
 
 LOCK TABLES `accounts` WRITE;
 /*!40000 ALTER TABLE `accounts` DISABLE KEYS */;
-INSERT INTO `accounts` VALUES ('nguyenanh123','$2a$08$75px17SpREdfOAf.zMfuIevlhMwRT.Da1Cs8sye.MOLeuXNsD5ER2','employee','2020-12-27 04:11:26','2020-12-27 04:11:26');
+INSERT INTO `accounts` VALUES ('hqdat','$2a$08$75px17SpREdfOAf.zMfuIevlhMwRT.Da1Cs8sye.MOLeuXNsD5ER2','customer','2020-12-30 04:11:26','2020-12-30 04:11:26'),('nguyenanh123','$2a$08$75px17SpREdfOAf.zMfuIevlhMwRT.Da1Cs8sye.MOLeuXNsD5ER2','employee','2020-12-27 04:11:26','2020-12-27 04:11:26'),('nguyenvana1999','$2a$08$iAMnd9MR24KfO1EE8WgBju/7qWLRFk1fT.q.pP3Rmmo03Oq4lGONm','employee','2021-01-03 13:47:15','2021-01-03 13:47:15'),('nguyenvanhngao','$2a$08$jNYQqTdPlaMUxrJSpDxTVelhtPPLKABGUWfVx7a/HayN89PKZVnpK','employee','2021-01-03 13:47:55','2021-01-03 13:47:55'),('nguyenvanhngao123','$2a$08$lSGJLEL7KbVb0Lf7hUdzCec7/gIIfHe.i56VyFfKxOSnyyVLHFosu','employee','2021-01-03 13:53:09','2021-01-03 13:53:09');
 /*!40000 ALTER TABLE `accounts` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-28 15:30:37
+-- Dump completed on 2021-01-04  3:13:09

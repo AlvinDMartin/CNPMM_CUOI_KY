@@ -31,12 +31,9 @@ CREATE TABLE `cases_doctors` (
   `cases_idCase` int NOT NULL,
   `doctors_idDoctor` int NOT NULL,
   PRIMARY KEY (`idCase_doctor`),
-  UNIQUE KEY `cases_idCase` (`cases_idCase`,`doctors_idDoctor`),
   KEY `fk_cases_doctors_cases1_idx` (`cases_idCase`),
-  KEY `fk_cases_doctors_doctors1_idx` (`doctors_idDoctor`),
-  CONSTRAINT `fk_cases_doctors_cases1` FOREIGN KEY (`cases_idCase`) REFERENCES `cases` (`idCase`),
-  CONSTRAINT `fk_cases_doctors_doctors1` FOREIGN KEY (`doctors_idDoctor`) REFERENCES `doctors` (`idDoctor`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `fk_cases_doctors_doctors1_idx` (`doctors_idDoctor`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,6 +42,7 @@ CREATE TABLE `cases_doctors` (
 
 LOCK TABLES `cases_doctors` WRITE;
 /*!40000 ALTER TABLE `cases_doctors` DISABLE KEYS */;
+INSERT INTO `cases_doctors` VALUES (1,'2021-01-03 12:08:08','Triệu chứng: khó thở, chóng mặt','2021-01-03 12:08:08','2021-01-03 12:08:08',1,1),(14,'2021-01-03 12:30:35','Tôi đến trễ 15p nhé','2021-01-03 12:30:35','2021-01-03 12:30:35',6,2),(16,'2021-01-03 14:10:54','Tôi đến trễ 15p nhé','2021-01-03 14:10:54','2021-01-03 14:10:54',7,2);
 /*!40000 ALTER TABLE `cases_doctors` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-28 15:30:37
+-- Dump completed on 2021-01-04  3:13:08

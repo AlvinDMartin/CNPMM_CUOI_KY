@@ -25,16 +25,14 @@ DROP TABLE IF EXISTS `booking_cases`;
 CREATE TABLE `booking_cases` (
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
-  `cases_doctors_idCase_doctor` int NOT NULL,
-  `customers_idCustomer` int NOT NULL,
   `idBooking` int NOT NULL AUTO_INCREMENT,
+  `customers_idCustomer` int NOT NULL,
+  `cases_doctors_idCase_doctor` int NOT NULL,
   PRIMARY KEY (`idBooking`),
-  UNIQUE KEY `cases_doctors_idCase_doctor` (`cases_doctors_idCase_doctor`,`customers_idCustomer`),
-  KEY `fk_booking_cases_cases_doctors_idx` (`cases_doctors_idCase_doctor`),
   KEY `fk_booking_cases_customers1_idx` (`customers_idCustomer`),
-  CONSTRAINT `fk_booking_cases_cases_doctors` FOREIGN KEY (`cases_doctors_idCase_doctor`) REFERENCES `cases_doctors` (`idCase_doctor`),
+  KEY `fk_booking_cases_cases_doctors1_idx` (`cases_doctors_idCase_doctor`),
   CONSTRAINT `fk_booking_cases_customers1` FOREIGN KEY (`customers_idCustomer`) REFERENCES `customers` (`idCustomer`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,6 +41,7 @@ CREATE TABLE `booking_cases` (
 
 LOCK TABLES `booking_cases` WRITE;
 /*!40000 ALTER TABLE `booking_cases` DISABLE KEYS */;
+INSERT INTO `booking_cases` VALUES ('2021-01-03 15:37:35','2021-01-03 15:37:35',1,2,14);
 /*!40000 ALTER TABLE `booking_cases` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-28 15:30:37
+-- Dump completed on 2021-01-04  3:13:08

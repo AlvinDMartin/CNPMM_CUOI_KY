@@ -23,15 +23,17 @@ DROP TABLE IF EXISTS `customers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `customers` (
-  `idCustomer` int NOT NULL,
+  `idCustomer` int NOT NULL AUTO_INCREMENT,
   `fullName` varchar(45) DEFAULT NULL,
   `phone` varchar(10) DEFAULT NULL,
   `address` varchar(100) DEFAULT NULL,
   `note` varchar(45) DEFAULT NULL,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
-  PRIMARY KEY (`idCustomer`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `accounts_username` varchar(50) NOT NULL,
+  PRIMARY KEY (`idCustomer`),
+  KEY `fk_customers_accounts1_idx` (`accounts_username`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,6 +42,7 @@ CREATE TABLE `customers` (
 
 LOCK TABLES `customers` WRITE;
 /*!40000 ALTER TABLE `customers` DISABLE KEYS */;
+INSERT INTO `customers` VALUES (1,'Nguyen Van A','0987654213','Vo van Ngan, Thu Duc','customer','2021-01-02 12:51:10','2021-01-02 12:51:10',''),(2,'Hồ Quốc Đạt','098765456','Cách Mạng tháng 8, Phường 6, Quận 3','Đặt lịch khám bệnh','2021-01-03 09:21:05','2021-01-03 09:21:05','hqdat');
 /*!40000 ALTER TABLE `customers` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-28 15:30:36
+-- Dump completed on 2021-01-04  3:13:08

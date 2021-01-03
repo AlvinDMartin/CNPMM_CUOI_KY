@@ -11,6 +11,7 @@ exports.addCustomer = async (req, res) => {
         phone,
         address,
         note,
+        accounts_username,
     } = req.body;
     try {
         let customer = await Customers.create({
@@ -18,6 +19,7 @@ exports.addCustomer = async (req, res) => {
             phone,
             address,
             note,
+            accounts_username,
         })
         res.status(200).send(customer) //tra ve data
     } catch (error) {

@@ -11,6 +11,8 @@ var Cases_doctors = sequelize.define(
     },
     dateRegister: {
         type: Sequelize.DATE,
+        //defaultValue: Sequelize.NOW,
+        //time_zone: 'Asia/Ho_Chi_Minh',
         field: "dateRegister",
         allowNull: true,
     },

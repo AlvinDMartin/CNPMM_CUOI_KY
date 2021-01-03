@@ -23,16 +23,15 @@ DROP TABLE IF EXISTS `group_diseases`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `group_diseases` (
-  `idGroup` int NOT NULL,
-  `nameGroup` varchar(100) DEFAULT NULL,
-  `description` varchar(200) DEFAULT NULL,
+  `idGroup` int NOT NULL AUTO_INCREMENT,
+  `nameGroup` varchar(500) DEFAULT NULL,
+  `description` varchar(500) DEFAULT NULL,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   `specialists_idSpecialists` int NOT NULL,
   PRIMARY KEY (`idGroup`),
-  KEY `fk_group_diseases_specialists1_idx` (`specialists_idSpecialists`),
-  CONSTRAINT `fk_group_diseases_specialists1` FOREIGN KEY (`specialists_idSpecialists`) REFERENCES `specialists` (`idSpecialists`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `fk_group_diseases_specialists1_idx` (`specialists_idSpecialists`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +40,7 @@ CREATE TABLE `group_diseases` (
 
 LOCK TABLES `group_diseases` WRITE;
 /*!40000 ALTER TABLE `group_diseases` DISABLE KEYS */;
-INSERT INTO `group_diseases` VALUES (1,'Nhóm bệnh đường tiêu hóa',NULL,NULL,NULL,1);
+INSERT INTO `group_diseases` VALUES (1,'Nhóm bệnh đường tiêu hóa',NULL,NULL,NULL,0),(2,'Nhóm bệnh tim mạch','Bệnh Tim Mạch là một trong những căn bệnh có tỉ lệ gây tử vong hàng đầu trên toàn thế giới.','2021-01-03 09:33:31','2021-01-03 09:33:31',2);
 /*!40000 ALTER TABLE `group_diseases` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-28 15:30:37
+-- Dump completed on 2021-01-04  3:13:08

@@ -23,13 +23,13 @@ DROP TABLE IF EXISTS `specialists`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `specialists` (
-  `idSpecialists` int NOT NULL,
-  `name` varchar(100) DEFAULT NULL,
-  `description` varchar(200) DEFAULT NULL,
+  `idSpecialists` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(500) DEFAULT NULL,
+  `description` varchar(500) DEFAULT NULL,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`idSpecialists`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `specialists` (
 
 LOCK TABLES `specialists` WRITE;
 /*!40000 ALTER TABLE `specialists` DISABLE KEYS */;
-INSERT INTO `specialists` VALUES (1,'Khoa ngoại',NULL,NULL,NULL);
+INSERT INTO `specialists` VALUES (1,'Khoa ngoại',NULL,NULL,NULL),(2,'Khoa tim mạch tổng quát','Khoa Tim mạch tổng quát là khoa lâm sàng điều trị các bệnh nội khoa tim mạch của người lớn','2021-01-03 09:29:31','2021-01-03 09:29:31');
 /*!40000 ALTER TABLE `specialists` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-28 15:30:37
+-- Dump completed on 2021-01-04  3:13:09
