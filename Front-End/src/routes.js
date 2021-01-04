@@ -18,6 +18,9 @@ import TableList from "views/TableList/TableList.js";
 import Maps from "views/Maps/Maps.js";
 import NotificationsPage from "views/Notifications/Notifications.js";
 import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.js";
+import createchuyenkhoa from "views/TaoDanhSach/createchuyenkhoa.js";
+import createnhombenh from "views/TaoDanhSach/createnhombenh.js";
+import createbenh from "views/TaoDanhSach/createbenh.js";
 // core components/views for RTL layout
 
 const dashboardRoutes = [
@@ -71,18 +74,39 @@ const dashboardRoutes = [
     component: Maps,
     layout: "/admin"
   },
-  {
-    path: "/thongbao",
-    name: "Thông báo",
-    icon: Notifications,
-    component: NotificationsPage,
-    layout: "/admin"
-  },
+  // {
+  //   path: "/thongbao",
+  //   name: "Thông báo",
+  //   icon: Notifications,
+  //   component: NotificationsPage,
+  //   layout: "/admin"
+  // },
   {
     path: "/thongtinlienhe",
     name: "Thông tin liên hệ",
     icon: Unarchive,
     component: UpgradeToPro,
+    layout: "/admin"
+  },
+  {
+    path: "/createchuyenkhoa",
+    name: "Tạo chuyên khoa",
+    icon: Unarchive,
+    component: createchuyenkhoa,
+    layout: "/admin"
+  },
+  {
+    path: "/createnhombenh",
+    name: "Tạo nhóm bệnh",
+    icon: Unarchive,
+    component: createnhombenh,
+    layout: "/admin"
+  },
+  {
+    path: "/createbenh",
+    name: "Tạo bệnh",
+    icon: Unarchive,
+    component: createbenh,
     layout: "/admin"
   }
 ];

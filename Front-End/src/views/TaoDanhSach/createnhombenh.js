@@ -16,7 +16,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 
 
 import { useForm } from "react-hook-form";
-import logInApi from "api/logInApi";
+import group_diseasesApi from "api/group_diseasesApi.js";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -46,16 +46,11 @@ export default function SignIn() {
 
   const {register, handleSubmit } = useForm();
 
-  const onSubmit = (data) => {
-    const userAccount = JSON.stringify(data);
-    console.log(userAccount);
-    fetchLogIn(userAccount);
-  };
-
-  const fetchLogIn = async(userAccount) =>{
+  const fetchLogIn = async(Account) =>{
     try{
-      let response = await logInApi.login(userAccount);
+      let response = await group_diseasesApi.postAll(Account);
       alert("Thành công");
+      console.log(response);
       //chuyển trang
       //return localStorage.setItem('user', true)
       
@@ -64,6 +59,19 @@ export default function SignIn() {
       console.log(error);
     }
   }
+
+  const onSubmit = (data) => {
+    const userAccount = {
+        description: data.description,
+        nameGroup: data.nameGroup,        
+        specialists_idSpecialists: data.specialists_idSpecialists,
+      }
+    fetchLogIn(userAccount);
+    console.log(userAccount);
+
+  };
+
+
 
 
 
@@ -75,18 +83,18 @@ export default function SignIn() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          ĐĂNG NHẬP TÀI KHOẢN CỦA BẠN
+          TẠO NHÓM BỆNH
         </Typography>
-        <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
+        <form className={classes.form} noValidate onSubmit={handleSubmit(onSubmit)}>
           <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
-            id="username"
-            label="Tên tài khoản"
-            name="username"
-            autoComplete="username"
+            id="nameGroup"
+            label="Tên nhóm bệnh"
+            name="nameGroup"
+            autoComplete="nameGroup"
             autoFocus
             inputRef={register} 
           />
@@ -95,38 +103,33 @@ export default function SignIn() {
             margin="normal"
             required
             fullWidth
-            name="password"
-            label="Mật khẩu"
-            type="password"
-            id="password"
+            name="description"
+            label="Mô tả nhóm bệnh"
+            type="description"
+            id="description"
             autoComplete="current-password"
             inputRef={register} 
           />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Nhớ mật khẩu của bạn"
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="specialists_idSpecialists"
+            label="mã chuyên khoa"
+            type="specialists_idSpecialists"
+            id="specialists_idSpecialists"
+            autoComplete="current-password"
+            inputRef={register} 
           />
           <Button
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
-            //className={classes.submit} 
           >
-            ĐĂNG NHẬP
+            LƯU
           </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Quên mật khẩu?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link href="/admin/dangky" variant="body2">
-                {"Chưa có tài khoản ? Đăng ký ngay"}
-              </Link>
-            </Grid>
-          </Grid>
         </form>
       </div>
     </Container>

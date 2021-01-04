@@ -16,7 +16,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 
 
 import { useForm } from "react-hook-form";
-import logInApi from "api/logInApi";
+import SpecialistsApi from "api/SpecialistsApi";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -47,15 +47,20 @@ export default function SignIn() {
   const {register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    const userAccount = JSON.stringify(data);
-    console.log(userAccount);
+    const userAccount = {
+        name: data.name,
+        description: data.description,
+      }
     fetchLogIn(userAccount);
+    console.log(userAccount);
+
   };
 
-  const fetchLogIn = async(userAccount) =>{
+  const fetchLogIn = async(Account) =>{
     try{
-      let response = await logInApi.login(userAccount);
+      let response = await SpecialistsApi.postAll(Account);
       alert("Thành công");
+      console.log(response);
       //chuyển trang
       //return localStorage.setItem('user', true)
       
@@ -75,18 +80,18 @@ export default function SignIn() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          ĐĂNG NHẬP TÀI KHOẢN CỦA BẠN
+          TẠO CHUYÊN KHOA
         </Typography>
-        <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
+        <form className={classes.form} noValidate onSubmit={handleSubmit(onSubmit)}>
           <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
-            id="username"
-            label="Tên tài khoản"
-            name="username"
-            autoComplete="username"
+            id="name"
+            label="Tên chuyên khoa"
+            name="name"
+            autoComplete="name"
             autoFocus
             inputRef={register} 
           />
@@ -95,38 +100,21 @@ export default function SignIn() {
             margin="normal"
             required
             fullWidth
-            name="password"
-            label="Mật khẩu"
-            type="password"
-            id="password"
+            name="description"
+            label="Mô tả chuyên khoa"
+            type="description"
+            id="description"
             autoComplete="current-password"
             inputRef={register} 
-          />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Nhớ mật khẩu của bạn"
           />
           <Button
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
-            //className={classes.submit} 
           >
-            ĐĂNG NHẬP
+            LƯU
           </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Quên mật khẩu?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link href="/admin/dangky" variant="body2">
-                {"Chưa có tài khoản ? Đăng ký ngay"}
-              </Link>
-            </Grid>
-          </Grid>
         </form>
       </div>
     </Container>

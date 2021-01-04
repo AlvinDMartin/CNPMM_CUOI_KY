@@ -9,6 +9,7 @@ import Table from "components/Table/Table.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
+import Button from "components/CustomButtons/Button.js";
 
 
 import List_diseasesApi from "api/List_diseasesApi.js";
@@ -169,6 +170,12 @@ export default function TableList() {
             <p className={classes.cardCategoryWhite}>
               Tất cả các chuyên khoa
             </p>
+            <Button 
+              href="/admin/createchuyenkhoa"
+              color="warning"
+              >Tạo chuyên khoa
+              
+              </Button>
           </CardHeader>
           <CardBody>
             <Table
@@ -188,6 +195,12 @@ export default function TableList() {
             <p className={classes.cardCategoryWhite}>
               Tất cả các nhóm bệnh
             </p>
+            <Button 
+              href="/admin/createnhombenh"
+              color="success"
+              >Tạo nhóm bệnh
+              
+              </Button>
           </CardHeader>
           <CardBody>
             <Table
@@ -208,6 +221,12 @@ export default function TableList() {
             <p className={classes.cardCategoryWhite}>
               Tất cả các bệnh thuộc các nhóm bệnh
             </p>
+            <Button 
+              href="/admin/createbenh"
+              color="primary"
+              >tạo bệnh
+              
+              </Button>
           </CardHeader>
           <CardBody>
             <Table

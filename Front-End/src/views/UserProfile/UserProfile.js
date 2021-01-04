@@ -47,13 +47,13 @@ export default function UserProfile() {
     fullName: '',
     phone:'',
     address:'',
-    note:''
+    note:'',
+    accounts_username:''
   }
 
   const fetchcustomer = async(datacustomer) =>{
     try{
       let response = await customersApi.post(datacustomer);
-      console.log(response)
     }
     catch(error){
       console.log(error);
@@ -61,7 +61,7 @@ export default function UserProfile() {
   }
 
   const onSubmit = () => {
-
+    console.log(infor)
     fetchcustomer(infor);
   }
 
@@ -79,6 +79,9 @@ export default function UserProfile() {
       case 4:
         infor.note = data.target.value
           break;
+      case 5:
+        infor.accounts_username = data.target.value
+          break;
       default:
     }
     
@@ -93,7 +96,7 @@ export default function UserProfile() {
         <form className={classes.form} >
           <Card>
             <CardHeader color="primary">
-              <h4 className={classes.cardTitleWhite}>CHỈNH SỬA THÔNG TIN CỦA BẠN</h4>
+              <h4 className={classes.cardTitleWhite}>THÊM THÔNG TIN CHO TÀI khoản CỦA BẠN</h4>
               <p className={classes.cardCategoryWhite}>Điền thông tin chỉnh sửa cần thiết</p>
             </CardHeader>
 
@@ -168,6 +171,23 @@ export default function UserProfile() {
                   />
                 </GridItem>
               </GridContainer>
+              <GridContainer>
+                <GridItem xs={12} sm={12} md={12}>
+                  <CustomInput
+                    labelText="Tên tài khoản"
+                    id="diachi"
+                    formControlProps={{
+                      fullWidth: true
+                    }}
+                    inputProps={{
+                      onChange: (data) => {
+                        handeChange(data, 5)
+                      }
+                    }}
+                  />
+                </GridItem>
+              </GridContainer>
+
             </CardBody>            
             <CardFooter>
               <Button 

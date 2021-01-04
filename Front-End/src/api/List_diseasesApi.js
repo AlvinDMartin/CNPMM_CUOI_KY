@@ -4,7 +4,12 @@ import axiosClient from "./axiosClient";
 const List_diseasesApi = {
     getAll : (params) => {
         const url = '/api/auth/list-diseases';
-        return axiosClient.get(url, { params });
+        return axiosClient.get(url,  {params});
+    },
+
+    postAll : (params) => {
+        const url = '/api/auth/diseases';
+        return axiosClient.post(url,  params);
     },
 }
 

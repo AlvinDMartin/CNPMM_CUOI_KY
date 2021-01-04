@@ -1,5 +1,5 @@
 global.Sequelize = require("sequelize");
-global.sequelize = new Sequelize("nna", "root", "nguyenanh", {
+global.sequelize = new Sequelize("datcnpmm", "root", "123456", {
   host: "127.0.0.1",
   //logging: false,
   dialect: "mysql",
